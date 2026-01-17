@@ -16,21 +16,21 @@ Specs analyzed: specs/mobile-calculator.md
 | Status | Count |
 |--------|-------|
 | Total  | 29    |
-| Done   | 4     |
-| Todo   | 25    |
+| Done   | 5     |
+| Todo   | 24    |
 
 **Phase 0 Research**: ✅ Complete (4/4 tasks)
-**Phase 1 Foundation**: 📋 Todo (4 tasks - TASK-001 to TASK-004)
+**Phase 1 Foundation**: 🔄 In Progress (1/4 tasks - TASK-002 done)
 **Phase 2 Core Logic**: 📋 Todo (4 tasks - TASK-005 to TASK-008)
-**Phase 3 Mobile UI**: 📋 Todo (9 tasks - TASK-009 to TASK-017) ⭐ UI design complete!
+**Phase 3 Mobile UI**: ✅ Prototype Complete (3/9 tasks - TASK-009, 010, skeleton done)
 
 ---
 
-## 🎯 NEXT ITERATION: BUILD MODE - Quick Prototype
+## 🎯 NEXT ITERATION: BUILD MODE - Full Implementation
 
-**Goal**: Create visual layout prototype (no functionality)
-**Rationale**: User wants to "see what the app looks like" before full implementation
-**Mode**: BUILD (not research)
+**Goal**: Integrate @smogon/calc and build core calculator functionality
+**Previous**: Visual prototype complete (Iteration 3)
+**Mode**: BUILD
 
 ### Prototype Scope (Iteration 3)
 
@@ -675,6 +675,33 @@ Specs analyzed: specs/mobile-calculator.md
 - Identified 7 bad patterns to avoid (ads, missing features, unclear UI, etc.)
 - Competitive gaps identified: Better doubles support, clearer UX, VGC-specific features
 - 7 design recommendations documented for implementation phases
+
+### Phase 1: Foundation 🔄
+
+**TASK-001: Initialize Expo React Native Project** (Completed: 2026-01-16)
+- Created Expo project with TypeScript template
+- Configured tsconfig.json with strict mode and path aliases (@/components, @/services, etc.)
+- Set up ESLint + Prettier for code quality
+- Added npm scripts: lint, format, type-check, validate
+- Fixed babel.config.js to include Reanimated plugin
+- Added GestureHandlerRootView wrapper in App.tsx
+- Project runs successfully on iOS/Android
+
+**TASK-002: Integrate @smogon/calc Package** (Completed: 2026-01-16)
+- Installed @smogon/calc v0.10.0 - no polyfills needed
+- Created calculator wrapper at `src/lib/calculator.ts` with clean TypeScript interfaces
+- Implemented PokemonConfig, MoveConfig, and FieldConfig interfaces
+- Created calculateDamage() function that wraps @smogon/calc API
+- Wrote comprehensive test suite with 6 test cases covering:
+  - Basic damage calculation
+  - Field conditions (weather, terrain, screens, Helping Hand)
+  - Stat boosts
+  - Critical hits
+  - Terastallization
+  - Multi-hit moves
+- Configured Jest + ts-jest for testing
+- All tests pass ✅
+- Type checking passes ✅
 
 ---
 
