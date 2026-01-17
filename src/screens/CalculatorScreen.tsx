@@ -62,41 +62,41 @@ export default function CalculatorScreen() {
 }
 
 const styles = StyleSheet.create({
-  container: {
+  actionButton: {
+    alignItems: 'center',
+    backgroundColor: Colors.cardBackground,
+    borderColor: Colors.border,
+    borderRadius: BorderRadius.md,
+    borderWidth: 1,
     flex: 1,
-    backgroundColor: Colors.background,
+    paddingVertical: Spacing.md,
   },
-  scrollView: {
-    flex: 1,
+  actionButtonText: {
+    color: Colors.textPrimary,
+    fontSize: Typography.fontSize.sm,
+    fontWeight: Typography.fontWeight.medium,
   },
-  scrollContent: {
-    paddingTop: Spacing.xl,
+  bottomSpacer: {
+    height: Spacing.xxxl,
   },
   cardsContainer: {
     marginTop: Spacing.md,
   },
+  container: {
+    backgroundColor: Colors.background,
+    flex: 1,
+  },
   quickActions: {
     flexDirection: 'row',
+    gap: Spacing.sm,
     justifyContent: 'space-evenly',
     paddingHorizontal: Spacing.lg,
     paddingVertical: Spacing.xl,
-    gap: Spacing.sm,
   },
-  actionButton: {
+  scrollContent: {
+    paddingTop: Spacing.xl,
+  },
+  scrollView: {
     flex: 1,
-    backgroundColor: Colors.cardBackground,
-    paddingVertical: Spacing.md,
-    borderRadius: BorderRadius.md,
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: Colors.border,
-  },
-  actionButtonText: {
-    fontSize: Typography.fontSize.sm,
-    fontWeight: Typography.fontWeight.medium,
-    color: Colors.textPrimary,
-  },
-  bottomSpacer: {
-    height: Spacing.xxxl,
   },
 });

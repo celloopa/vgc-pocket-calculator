@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, StyleSheet, Animated } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { Colors, BorderRadius, Spacing, Shadows, Typography } from '@/theme';
 
 interface Move {
@@ -98,56 +98,56 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: Colors.cardBackground,
     borderRadius: BorderRadius.card,
-    padding: Spacing.lg,
     marginHorizontal: Spacing.lg,
     marginTop: Spacing.lg,
+    padding: Spacing.lg,
     ...Shadows.md,
+  },
+  damageInfo: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    gap: Spacing.sm,
+  },
+  damageText: {
+    color: Colors.textSecondary,
+    fontSize: Typography.fontSize.sm,
+    marginRight: Spacing.sm,
+  },
+  divider: {
+    backgroundColor: Colors.border,
+    height: 1,
+    marginBottom: Spacing.md,
   },
   header: {
     marginBottom: Spacing.sm,
   },
   headerText: {
+    color: Colors.textPrimary,
     fontSize: Typography.fontSize.lg,
     fontWeight: Typography.fontWeight.semibold,
-    color: Colors.textPrimary,
   },
-  divider: {
-    height: 1,
-    backgroundColor: Colors.border,
-    marginBottom: Spacing.md,
+  koBadge: {
+    borderRadius: BorderRadius.sm,
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: 4,
   },
-  moveRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingVertical: Spacing.sm,
+  koText: {
+    color: Colors.textInverse,
+    fontSize: Typography.fontSize.xs,
+    fontWeight: Typography.fontWeight.bold,
   },
   moveInfo: {
     flex: 1,
   },
   moveName: {
+    color: Colors.textPrimary,
     fontSize: Typography.fontSize.md,
     fontWeight: Typography.fontWeight.medium,
-    color: Colors.textPrimary,
   },
-  damageInfo: {
-    flexDirection: 'row',
+  moveRow: {
     alignItems: 'center',
-    gap: Spacing.sm,
-  },
-  damageText: {
-    fontSize: Typography.fontSize.sm,
-    color: Colors.textSecondary,
-    marginRight: Spacing.sm,
-  },
-  koBadge: {
-    paddingHorizontal: Spacing.sm,
-    paddingVertical: 4,
-    borderRadius: BorderRadius.sm,
-  },
-  koText: {
-    fontSize: Typography.fontSize.xs,
-    fontWeight: Typography.fontWeight.bold,
-    color: Colors.textInverse,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical: Spacing.sm,
   },
 });

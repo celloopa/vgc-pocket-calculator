@@ -17,14 +17,14 @@ A mobile-first damage calculator for Pokemon VGC (Video Game Championships) doub
 
 ## 🏗️ Technology Stack
 
-| Layer | Technology | Rationale |
-|-------|-----------|-----------|
-| **Calculation Engine** | `@smogon/calc` | MIT licensed, TypeScript, all Gen 1-9 data included |
-| **Mobile Framework** | React Native + Expo | Cross-platform with OTA updates |
-| **UI Library** | React Native Paper | Material Design, mobile-first components |
-| **State Management** | Zustand | Lightweight, TypeScript-friendly |
-| **Local Storage** | MMKV | 30x faster than AsyncStorage |
-| **Search** | Fuse.js | Lightweight fuzzy search |
+| Layer                  | Technology          | Rationale                                           |
+| ---------------------- | ------------------- | --------------------------------------------------- |
+| **Calculation Engine** | `@smogon/calc`      | MIT licensed, TypeScript, all Gen 1-9 data included |
+| **Mobile Framework**   | React Native + Expo | Cross-platform with OTA updates                     |
+| **UI Library**         | React Native Paper  | Material Design, mobile-first components            |
+| **State Management**   | Zustand             | Lightweight, TypeScript-friendly                    |
+| **Local Storage**      | MMKV                | 30x faster than AsyncStorage                        |
+| **Search**             | Fuse.js             | Lightweight fuzzy search                            |
 
 ## 📊 Project Status
 
@@ -44,6 +44,7 @@ See [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) for detailed roadmap.
 ### @smogon/calc Compatibility
 
 ✅ Excellent React Native compatibility prospects:
+
 - Zero runtime dependencies
 - Self-contained TypeScript package
 - Works in server and browser environments
@@ -58,10 +59,12 @@ See [IMPLEMENTATION_PLAN.md](./IMPLEMENTATION_PLAN.md) for detailed roadmap.
 ### Competitive Landscape
 
 Analyzed existing mobile calculators:
+
 - **iOS Damage Calculator** (4.8★) - Clean UX, offline, PokePaste support
 - **VS SV Calculator** (4.5★) - Multi-calc view, saved sets
 
 **Our differentiators**:
+
 - Better VGC doubles support
 - Clearer UX for physical/special attacks
 - No ads, free and open
@@ -70,18 +73,21 @@ Analyzed existing mobile calculators:
 ## 🚀 Development Roadmap
 
 ### Phase 1: Foundation (Upcoming)
+
 - Initialize Expo project
 - Integrate @smogon/calc
 - Set up React Native Paper UI
 - Configure navigation
 
 ### Phase 2: Core Calculator
+
 - Pokemon data service with fuzzy search
 - Move data service
 - Calculation service (doubles, weather, terrain)
 - State management with Zustand
 
 ### Phase 3: Mobile UI
+
 - Pokemon search component
 - Pokemon config (EVs, nature, items)
 - Move selector
@@ -90,18 +96,21 @@ Analyzed existing mobile calculators:
 - Main calculator screen
 
 ### Phase 4: Quality of Life
+
 - Team import (Showdown format)
 - Persistent storage (favorites, recents)
 - Haptic feedback
 - Dark mode
 
 ### Phase 5: Platform Polish
+
 - iOS optimizations (safe areas, animations)
 - Android optimizations (Material You)
 - Performance optimization (60fps)
 - Offline verification
 
 ### Phase 6: Distribution
+
 - EAS Build configuration
 - TestFlight (iOS)
 - Google Play Internal Testing (Android)

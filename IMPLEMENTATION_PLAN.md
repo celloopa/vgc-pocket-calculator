@@ -6,6 +6,7 @@ Specs analyzed: specs/mobile-calculator.md
 ## Project Vision
 
 **VGC Pocket Calc** - Mobile-first VGC doubles damage calculator for quick calculations during battles.
+
 - Cross-platform (iOS + Android) via React Native/Expo
 - Use alongside Pokemon Showdown or mobile battlesims
 - Leverage `@smogon/calc` for battle math (MIT licensed, TypeScript, all data included)
@@ -14,7 +15,7 @@ Specs analyzed: specs/mobile-calculator.md
 ## Status Summary
 
 | Status | Count |
-|--------|-------|
+| ------ | ----- |
 | Total  | 29    |
 | Done   | 5     |
 | Todo   | 24    |
@@ -35,6 +36,7 @@ Specs analyzed: specs/mobile-calculator.md
 ### Prototype Scope (Iteration 3)
 
 **Build These**:
+
 1. ✅ TASK-001: Initialize Expo React Native Project
 2. ✅ TASK-009: Set up Animation & Gesture Libraries (Moti + Reanimated)
 3. ✅ TASK-010: Create Design System & Theme (colors, tokens)
@@ -47,6 +49,7 @@ Specs analyzed: specs/mobile-calculator.md
    - Verify responsive layout on different screen sizes
 
 **Skip in Prototype**:
+
 - ❌ @smogon/calc integration (TASK-002)
 - ❌ Data services (TASK-005, 006)
 - ❌ Bottom sheets (use inline dropdowns temporarily)
@@ -55,6 +58,7 @@ Specs analyzed: specs/mobile-calculator.md
 - ❌ State management (use local component state)
 
 **Outcome**:
+
 - See layout hierarchy in action
 - Test card animations on device
 - Validate "results-first" workflow
@@ -62,6 +66,7 @@ Specs analyzed: specs/mobile-calculator.md
 - Get feel for Pokemon-themed colors
 
 **Design References**:
+
 - `specs/ui-design.md` - Complete UI specification
 - `specs/edge-cases.md` - Edge case handling
 - `.ralph/RESEARCH_SUMMARY.md` - Research findings
@@ -77,6 +82,7 @@ Specs analyzed: specs/mobile-calculator.md
 **Status**: ✅ Research Complete
 
 **Findings**:
+
 - **Excellent compatibility prospects**: @smogon/calc has NO runtime dependencies (only `@types/node` as dev dependency)
 - Package is designed to work in both server and browser environments, explicitly supporting Node.js usage
 - No polyfills needed by default since package is self-contained
@@ -84,21 +90,25 @@ Specs analyzed: specs/mobile-calculator.md
 - Available entry points: `dist/index.js` (main), `@smogon/calc/adaptable` (for custom data layers)
 
 **Potential Polyfills** (only if issues arise):
+
 - `react-native-url-polyfill` - for URL API if needed
 - `react-native-polyfill-globals` - for Buffer, process, crypto if needed
 - `expo-crypto` - for crypto operations if needed
 - Note: These are precautionary - the package should work without polyfills
 
 **Risks/Blockers**:
+
 - None identified during research
 - Package architecture suggests strong React Native compatibility
 
 **Recommendations**:
+
 - Proceed with TASK-001 and TASK-002 to validate with actual implementation
 - Test calculation functions immediately after installation
 - Monitor bundle size impact during integration
 
 **Sources**:
+
 - [GitHub - smogon/damage-calc](https://github.com/smogon/damage-calc)
 - [@smogon/calc - npm](https://www.npmjs.com/package/@smogon/calc)
 - [React Native Polyfill Globals](https://github.com/acostalima/react-native-polyfill-globals)
@@ -109,6 +119,7 @@ Specs analyzed: specs/mobile-calculator.md
 **Status**: ✅ Research Complete
 
 **Findings**:
+
 - **Package size**: 3.13 MB (npm package size)
 - Includes all 9 generations of Pokemon data (Gen 1-9)
 - Data includes: Pokemon species, moves, abilities, items, battle mechanics
@@ -116,6 +127,7 @@ Specs analyzed: specs/mobile-calculator.md
 - Supports bundlers: Webpack, Rollup, Parcel
 
 **Bundle Optimization Options**:
+
 1. **Use adaptable entry point**: `@smogon/calc/adaptable`
    - Allows custom data layer integration
    - Can use `@pkmn/data` to avoid duplicate data
@@ -132,18 +144,21 @@ Specs analyzed: specs/mobile-calculator.md
    - More complex implementation, consider for v2 if size is issue
 
 **Impact Assessment**:
+
 - For mobile app focused on Gen 9 VGC: 3.13 MB is acceptable
 - All data bundled = full offline functionality (critical requirement)
 - Modern phones can handle this size without performance issues
 - Trade-off: Size vs complete offline experience is worth it
 
 **Recommendations**:
+
 - Use standard entry point initially (`@smogon/calc`)
 - Accept 3.13 MB for MVP to ensure offline functionality
 - Monitor actual impact during TASK-021 (Performance Optimization)
 - If size becomes issue, explore adaptable entry point in Phase 5
 
 **Sources**:
+
 - [@smogon/calc - npm](https://www.npmjs.com/package/@smogon/calc)
 - [GitHub - smogon/damage-calc](https://github.com/smogon/damage-calc)
 - [Bundlephobia](https://bundlephobia.com)
@@ -214,18 +229,21 @@ Specs analyzed: specs/mobile-calculator.md
    - No API for team data
 
 **Recommendations for MVP**:
+
 - **Skip external data integration for MVP** - focus on core calculator functionality
 - **Phase 1**: Use @smogon/calc's built-in Pokemon/move data only
 - **Future enhancement**: Add usage stats integration using Babiri.net API or Showdown stats files
 - **Team import**: Support Showdown paste format (TASK-015) - no API needed
 
 **Post-MVP Enhancement Priority**:
+
 1. Showdown paste import (highest priority, already planned in TASK-015)
 2. Babiri.net API integration for usage stats (nice-to-have)
 3. Showdown stats file parsing (alternative to Babiri)
 4. VGC Pastes integration (low priority)
 
 **Sources**:
+
 - [Pikalytics](https://www.pikalytics.com/)
 - [Pokemon Showdown Stats](https://www.smogon.com/stats/)
 - [Babiri.net GitHub](https://github.com/kelvinkoon/babiri_v1)
@@ -274,6 +292,7 @@ Specs analyzed: specs/mobile-calculator.md
 #### UX Patterns That Work Well
 
 **Good Patterns**:
+
 1. ✅ **Multiple simultaneous calculations** (VS SV) - shows 4 move damages at once
 2. ✅ **Saved Pokemon sets** (both apps) - quick access to common builds
 3. ✅ **PokePaste import** (iOS app) - fast team loading
@@ -283,6 +302,7 @@ Specs analyzed: specs/mobile-calculator.md
 7. ✅ **Pre-loaded common sets** (VS SV) - reduces manual entry
 
 **Bad Patterns / Problems**:
+
 1. ❌ **Ads without removal option** (VS SV) - intrusive experience
 2. ❌ **Missing abilities/items** (VS SV) - incomplete calc results
 3. ❌ **No Showdown import** (VS SV) - manual entry required
@@ -294,6 +314,7 @@ Specs analyzed: specs/mobile-calculator.md
 #### Competitive Gaps (Opportunities)
 
 **Our app can differentiate by**:
+
 1. **Better doubles support** - VS SV and iOS app don't emphasize VGC-specific features
 2. **Clearer UX** - address confusion about Physical/Special toggles
 3. **Complete item/ability support** - avoid VS SV's accuracy issues
@@ -303,6 +324,7 @@ Specs analyzed: specs/mobile-calculator.md
 7. **VGC field conditions bar** - dedicated weather/terrain/screens UI
 
 **Avoid These Mistakes**:
+
 - Don't use intrusive ads
 - Ensure all Gen 9 abilities/items are supported
 - Make Physical/Special attack toggles obvious
@@ -310,6 +332,7 @@ Specs analyzed: specs/mobile-calculator.md
 - Include comprehensive berry selection
 
 **Recommendations for Design**:
+
 1. **Adopt multi-calc approach** (from VS SV) - show damage for 4 moves at once
 2. **Implement saved sets** (both apps) - but with better organization via Favorites/Recent
 3. **Support PokePaste import** (from iOS app) - already planned in TASK-015
@@ -319,6 +342,7 @@ Specs analyzed: specs/mobile-calculator.md
 7. **Haptic feedback** - make mobile interactions feel native
 
 **Sources**:
+
 - [Damage Calculator - iOS App Store](https://apps.apple.com/us/app/damage-calculator/id1554958775)
 - [VS SV Damage Calculator - Google Play](https://play.google.com/store/apps/details?id=project97.vs)
 - [APK Mirror - VS SV Reviews](https://apkgk.com/project97.vs)
@@ -329,6 +353,7 @@ Specs analyzed: specs/mobile-calculator.md
 ## Phase 1: Foundation
 
 ### TASK-001: Initialize Expo React Native Project
+
 - **Description**: Set up project with `npx create-expo-app@latest --template blank-typescript`. Configure:
   - tsconfig.json with strict mode
   - ESLint + Prettier
@@ -338,16 +363,19 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: `npx expo start` launches dev server, TypeScript compiles without errors
 
 ### TASK-002: Integrate @smogon/calc Package
+
 - **Description**: Install `@smogon/calc` and any required polyfills. Create wrapper module.
 - **Files**: `package.json`, `src/lib/calculator.ts`, `src/lib/__tests__/calculator.test.ts`
 - **Acceptance**: Can import and call `calculate()` function, returns valid damage ranges
 
 ### TASK-003: Set up React Native Paper UI
+
 - **Description**: Install and configure react-native-paper with custom theme (Pokemon-inspired colors).
 - **Files**: `src/theme/index.ts`, `App.tsx`
 - **Acceptance**: Paper components render correctly, theme applied
 
 ### TASK-004: Configure Navigation
+
 - **Description**: Set up expo-router for navigation between screens (Calculator, Import, Settings).
 - **Files**: `app/` directory structure
 - **Acceptance**: Can navigate between screens
@@ -357,6 +385,7 @@ Specs analyzed: specs/mobile-calculator.md
 ## Phase 2: Core Calculator Logic
 
 ### TASK-005: Create Pokemon Data Service
+
 - **Description**: Wrap @smogon/calc's Pokemon data for efficient searching. Include:
   - Species list with base stats, types, abilities
   - Fuzzy search by name (using fuse.js)
@@ -365,6 +394,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Search "Ursaluna" returns both forms, <50ms search time
 
 ### TASK-006: Create Move Data Service
+
 - **Description**: Wrap @smogon/calc's Move data. Include:
   - Move list with power, type, category, priority
   - Filter by Pokemon's learnset (Gen 9)
@@ -373,6 +403,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Can get valid moves for a Pokemon, filter by type/category
 
 ### TASK-007: Create Calculation Service
+
 - **Description**: High-level wrapper around @smogon/calc's `calculate()`. Handle:
   - Doubles mode (spread move 0.75x)
   - Stat boosts (-6 to +6)
@@ -385,6 +416,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Calculations match Smogon calculator results
 
 ### TASK-008: Create State Management Store
+
 - **Description**: Set up Zustand store for calculator state:
   - Attacker Pokemon config
   - Defender Pokemon config
@@ -403,6 +435,7 @@ Specs analyzed: specs/mobile-calculator.md
 **Reference**: `specs/ui-design.md` and `specs/edge-cases.md`
 
 ### TASK-009: Set up Animation & Gesture Libraries
+
 - **Description**: Install and configure animation foundation:
   - React Native Reanimated 3
   - Moti (Framer Motion-like API)
@@ -413,6 +446,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Libraries installed, sample animation renders smoothly
 
 ### TASK-010: Create Design System & Theme
+
 - **Description**: Implement Pokemon-themed design system:
   - Color palette (Pokemon type colors, damage indicators)
   - Typography system
@@ -424,6 +458,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Theme tokens available, type colors render correctly
 
 ### TASK-011: Create Pokemon Search Bottom Sheet
+
 - **Description**: Bottom sheet modal for Pokemon selection:
   - Search bar with fuzzy search (instant results)
   - Tabs: Recent | Favorites | All
@@ -436,6 +471,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Search works, favorites persist, animations smooth
 
 ### TASK-012: Create Collapsible Pokemon Card
+
 - **Description**: Expandable Pokemon configuration card:
   - Collapsed: Pokemon name + sprite + chevron (60pt height)
   - Expanded: Full config (300pt height)
@@ -451,6 +487,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Expand/collapse smooth, only one card expanded at a time, swipe gesture works
 
 ### TASK-013: Create Move Selector Bottom Sheet (Multi-Select)
+
 - **Description**: Multi-select bottom sheet for choosing 4 moves:
   - Search bar with instant filtering
   - Type filter chips (horizontal scroll, Pokemon type colors)
@@ -465,6 +502,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Can select 4 moves, filter works, checkboxes clear
 
 ### TASK-014: Create Field Conditions Bar
+
 - **Description**: Horizontal scrollable chip bar for field state:
   - Weather chips: ☀️ Sun, 🌧️ Rain, 🌪️ Sand, ❄️ Snow, ⛅ None
   - Terrain chips: ⚡ Electric, 🌱 Grassy, 🧠 Psychic, 🌫️ Misty, ⛅ None
@@ -478,6 +516,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Single tap toggle, mutually exclusive groups work, haptics feel good
 
 ### TASK-015: Create Damage Results Card (4-Move Comparison)
+
 - **Description**: Top-positioned damage results display:
   - Show 4 moves with damage ranges simultaneously
   - Each row: Type icon, move name, damage HP, damage %, KO indicator
@@ -495,6 +534,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: 4 moves visible, damage bars accurate, edge cases handled gracefully
 
 ### TASK-016: Create Main Calculator Screen
+
 - **Description**: Assemble all components with proper layout:
   - Top: Damage Results Card (sticky, always visible)
   - Below: Field Conditions Bar (horizontal scroll)
@@ -510,6 +550,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Full flow works, gestures smooth, responsive on different screen sizes
 
 ### TASK-017: Implement Sprite Loading System
+
 - **Description**: Load and cache Pokemon/item sprites:
   - Integrate @smogon/calc sprite data
   - Type icon fallback for missing sprites
@@ -525,6 +566,7 @@ Specs analyzed: specs/mobile-calculator.md
 ## Phase 4: Quality of Life
 
 ### TASK-015: Implement Team Import
+
 - **Description**: Parse Pokemon Showdown team paste format:
   - Detect Pokemon, nature, EVs, IVs, ability, item, moves
   - Handle team of 6
@@ -533,6 +575,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Can paste Showdown export and load Pokemon
 
 ### TASK-016: Implement Persistent Storage
+
 - **Description**: Use MMKV for fast local storage:
   - Recent Pokemon (last 20)
   - Favorite Pokemon (unlimited)
@@ -542,6 +585,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Data persists across app restarts
 
 ### TASK-017: Add Haptic Feedback
+
 - **Description**: Add subtle haptics for better mobile feel:
   - Selection feedback
   - Toggle feedback
@@ -550,6 +594,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Haptics feel natural, can be disabled in settings
 
 ### TASK-018: Implement Dark Mode
+
 - **Description**: Support system dark mode preference with manual override:
   - Dark theme colors
   - Persist preference
@@ -561,6 +606,7 @@ Specs analyzed: specs/mobile-calculator.md
 ## Phase 5: iOS & Android Polish
 
 ### TASK-019: iOS-Specific Optimizations
+
 - **Description**: Polish for iOS:
   - Safe area handling (notch, home indicator)
   - iOS-style animations
@@ -571,6 +617,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Feels native on iPhone
 
 ### TASK-020: Android-Specific Optimizations
+
 - **Description**: Polish for Android:
   - Material You dynamic colors (Android 12+)
   - Back button handling
@@ -581,6 +628,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Feels native on Android
 
 ### TASK-021: Performance Optimization
+
 - **Description**: Ensure smooth 60fps:
   - Profile with Flipper
   - Memoize expensive calculations
@@ -589,6 +637,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: No frame drops, calculation <100ms
 
 ### TASK-022: Offline Verification
+
 - **Description**: Verify full offline functionality:
   - All Pokemon data bundled
   - No network requests required
@@ -600,6 +649,7 @@ Specs analyzed: specs/mobile-calculator.md
 ## Phase 6: Distribution
 
 ### TASK-023: Configure EAS Build
+
 - **Description**: Set up Expo Application Services:
   - eas.json configuration
   - Build profiles (development, preview, production)
@@ -608,6 +658,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Can run `eas build` successfully
 
 ### TASK-024: TestFlight Distribution (iOS)
+
 - **Description**: Set up iOS beta testing:
   - Apple Developer account setup
   - App Store Connect configuration
@@ -616,6 +667,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Build available on TestFlight
 
 ### TASK-025: Google Play Internal Testing (Android)
+
 - **Description**: Set up Android beta testing:
   - Google Play Console setup
   - Internal testing track
@@ -623,6 +675,7 @@ Specs analyzed: specs/mobile-calculator.md
 - **Acceptance**: Build available on Play Store internal track
 
 ### TASK-026: App Store Metadata
+
 - **Description**: Prepare store listings:
   - App name, description, keywords
   - Screenshots (6.5" iPhone, 5.5" iPhone, Android phone, tablet)
@@ -652,24 +705,28 @@ Specs analyzed: specs/mobile-calculator.md
 ### Phase 0: Research & Validation ✅
 
 **TASK-R01: Validate @smogon/calc in React Native** (Completed: 2026-01-16)
+
 - Research confirmed excellent compatibility prospects
 - No runtime dependencies, self-contained package
 - TypeScript-based, works in server and browser environments
 - Polyfills likely not needed
 
 **TASK-R02: Benchmark @smogon/calc bundle size** (Completed: 2026-01-16)
+
 - Package size: 3.13 MB (includes all 9 generations)
 - Size is acceptable for offline-first mobile app
 - Optimization options identified (adaptable entry point, tree-shaking)
 - Recommendation: Use standard entry point for MVP
 
 **TASK-R03: Research VGC-specific data sources** (Completed: 2026-01-16)
+
 - Identified 4 usage stats sources (Pikalytics, Showdown Stats, Babiri.net API, Community Spreadsheet)
 - Identified 3 rental team sources (VGC Pastes, Victory Road, Pikalytics Team Builder)
 - Recommendation: Skip external data for MVP, focus on built-in @smogon/calc data
 - Future enhancements prioritized: Showdown paste import, Babiri.net API integration
 
 **TASK-R04: Competitive analysis - mobile calculators** (Completed: 2026-01-16)
+
 - Analyzed 2 main competitors: iOS Damage Calculator (4.8★) and VS SV Calculator (4.5★)
 - Identified 7 good UX patterns to adopt (multi-calc, saved sets, PokePaste import, etc.)
 - Identified 7 bad patterns to avoid (ads, missing features, unclear UI, etc.)
@@ -679,6 +736,7 @@ Specs analyzed: specs/mobile-calculator.md
 ### Phase 1: Foundation 🔄
 
 **TASK-001: Initialize Expo React Native Project** (Completed: 2026-01-16)
+
 - Created Expo project with TypeScript template
 - Configured tsconfig.json with strict mode and path aliases (@/components, @/services, etc.)
 - Set up ESLint + Prettier for code quality
@@ -688,6 +746,7 @@ Specs analyzed: specs/mobile-calculator.md
 - Project runs successfully on iOS/Android
 
 **TASK-002: Integrate @smogon/calc Package** (Completed: 2026-01-16)
+
 - Installed @smogon/calc v0.10.0 - no polyfills needed
 - Created calculator wrapper at `src/lib/calculator.ts` with clean TypeScript interfaces
 - Implemented PokemonConfig, MoveConfig, and FieldConfig interfaces
@@ -709,24 +768,24 @@ Specs analyzed: specs/mobile-calculator.md
 
 ### Technology Stack
 
-| Layer | Choice | Rationale |
-|-------|--------|-----------|
-| Calculation | `@smogon/calc` | MIT license, TypeScript, all Pokemon data |
-| Mobile | React Native + Expo | Cross-platform, OTA updates |
-| UI | React Native Paper | Material Design, mobile patterns |
-| State | Zustand | Lightweight, TypeScript-friendly |
-| Storage | MMKV | 30x faster than AsyncStorage |
-| Search | Fuse.js | Lightweight fuzzy search |
+| Layer       | Choice              | Rationale                                 |
+| ----------- | ------------------- | ----------------------------------------- |
+| Calculation | `@smogon/calc`      | MIT license, TypeScript, all Pokemon data |
+| Mobile      | React Native + Expo | Cross-platform, OTA updates               |
+| UI          | React Native Paper  | Material Design, mobile patterns          |
+| State       | Zustand             | Lightweight, TypeScript-friendly          |
+| Storage     | MMKV                | 30x faster than AsyncStorage              |
+| Search      | Fuse.js             | Lightweight fuzzy search                  |
 
 ### iOS & Android Requirements
 
-| Requirement | iOS | Android |
-|-------------|-----|---------|
-| Developer Account | Apple Developer ($99/year) | Google Play ($25 one-time) |
-| Min OS Version | iOS 14+ | Android 10+ (API 29) |
-| Testing | TestFlight (100 internal, 10k external) | Internal track (100), Closed/Open (unlimited) |
-| Build Format | IPA | AAB (not APK for Play Store) |
-| Review Time | ~24-48 hours | ~few hours to days |
+| Requirement       | iOS                                     | Android                                       |
+| ----------------- | --------------------------------------- | --------------------------------------------- |
+| Developer Account | Apple Developer ($99/year)              | Google Play ($25 one-time)                    |
+| Min OS Version    | iOS 14+                                 | Android 10+ (API 29)                          |
+| Testing           | TestFlight (100 internal, 10k external) | Internal track (100), Closed/Open (unlimited) |
+| Build Format      | IPA                                     | AAB (not APK for Play Store)                  |
+| Review Time       | ~24-48 hours                            | ~few hours to days                            |
 
 ### EAS Build Commands
 
@@ -748,6 +807,7 @@ eas submit --platform android
 ### Potential Polyfills Needed
 
 Based on research, @smogon/calc may need:
+
 - None confirmed - test in TASK-R01
 - If URL issues: `react-native-url-polyfill`
 - If crypto issues: `expo-crypto`

@@ -115,118 +115,118 @@ export default function PokemonCard({
 }
 
 const styles = StyleSheet.create({
+  boostChip: {
+    backgroundColor: Colors.surface,
+    borderRadius: BorderRadius.sm,
+    paddingHorizontal: Spacing.sm,
+    paddingVertical: 4,
+  },
+  boostRow: {
+    flexDirection: 'row',
+    gap: Spacing.sm,
+  },
+  boostSection: {
+    marginBottom: Spacing.sm,
+  },
+  boostText: {
+    color: Colors.textSecondary,
+    fontSize: Typography.fontSize.xs,
+  },
+  chevron: {
+    color: Colors.textSecondary,
+    fontSize: Typography.fontSize.md,
+    marginRight: Spacing.sm,
+  },
   container: {
     backgroundColor: Colors.cardBackground,
     borderRadius: BorderRadius.card,
     marginHorizontal: Spacing.lg,
     marginVertical: Spacing.sm,
-    padding: Spacing.lg,
     overflow: 'hidden',
+    padding: Spacing.lg,
     ...Shadows.md,
   },
-  header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  chevron: {
-    fontSize: Typography.fontSize.md,
+  detailLabel: {
     color: Colors.textSecondary,
-    marginRight: Spacing.sm,
+    fontSize: Typography.fontSize.sm,
+  },
+  detailRow: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  detailValue: {
+    color: Colors.textPrimary,
+    fontSize: Typography.fontSize.sm,
+    fontWeight: Typography.fontWeight.medium,
+  },
+  detailsGrid: {
+    gap: Spacing.sm,
+    marginBottom: Spacing.lg,
+  },
+  evPresets: {
+    flexDirection: 'row',
+    gap: Spacing.sm,
+  },
+  evSection: {
+    marginBottom: Spacing.lg,
+  },
+  expandedContent: {
+    marginTop: Spacing.lg,
+  },
+  header: {
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   headerContent: {
     flex: 1,
   },
-  roleLabel: {
-    fontSize: Typography.fontSize.xs,
-    fontWeight: Typography.fontWeight.medium,
-    color: Colors.textSecondary,
-    textTransform: 'uppercase',
-    letterSpacing: 0.5,
-  },
   pokemonName: {
+    color: Colors.textPrimary,
     fontSize: Typography.fontSize.lg,
     fontWeight: Typography.fontWeight.bold,
-    color: Colors.textPrimary,
   },
-  expandedContent: {
-    marginTop: Spacing.lg,
+  preset: {
+    backgroundColor: Colors.chipInactive,
+    borderRadius: BorderRadius.sm,
+    paddingHorizontal: Spacing.md,
+    paddingVertical: Spacing.sm,
+  },
+  presetActive: {
+    backgroundColor: Colors.chipActive,
+  },
+  presetTextActive: {
+    color: Colors.chipTextActive,
+    fontSize: Typography.fontSize.xs,
+    fontWeight: Typography.fontWeight.medium,
+  },
+  roleLabel: {
+    color: Colors.textSecondary,
+    fontSize: Typography.fontSize.xs,
+    fontWeight: Typography.fontWeight.medium,
+    letterSpacing: 0.5,
+    textTransform: 'uppercase',
+  },
+  sectionLabel: {
+    color: Colors.textPrimary,
+    fontSize: Typography.fontSize.sm,
+    fontWeight: Typography.fontWeight.semibold,
+    marginBottom: Spacing.sm,
   },
   spriteContainer: {
     alignItems: 'center',
     marginBottom: Spacing.lg,
   },
   spritePlaceholder: {
-    width: 80,
-    height: 80,
-    borderRadius: BorderRadius.md,
-    justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: BorderRadius.md,
+    height: 80,
+    justifyContent: 'center',
+    width: 80,
   },
   spriteText: {
+    color: Colors.textInverse,
     fontSize: Typography.fontSize.xxxl,
     fontWeight: Typography.fontWeight.bold,
-    color: Colors.textInverse,
-  },
-  detailsGrid: {
-    gap: Spacing.sm,
-    marginBottom: Spacing.lg,
-  },
-  detailRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  detailLabel: {
-    fontSize: Typography.fontSize.sm,
-    color: Colors.textSecondary,
-  },
-  detailValue: {
-    fontSize: Typography.fontSize.sm,
-    fontWeight: Typography.fontWeight.medium,
-    color: Colors.textPrimary,
-  },
-  evSection: {
-    marginBottom: Spacing.lg,
-  },
-  sectionLabel: {
-    fontSize: Typography.fontSize.sm,
-    fontWeight: Typography.fontWeight.semibold,
-    color: Colors.textPrimary,
-    marginBottom: Spacing.sm,
-  },
-  evPresets: {
-    flexDirection: 'row',
-    gap: Spacing.sm,
-  },
-  preset: {
-    paddingHorizontal: Spacing.md,
-    paddingVertical: Spacing.sm,
-    borderRadius: BorderRadius.sm,
-    backgroundColor: Colors.chipInactive,
-  },
-  presetActive: {
-    backgroundColor: Colors.chipActive,
-  },
-  presetTextActive: {
-    fontSize: Typography.fontSize.xs,
-    color: Colors.chipTextActive,
-    fontWeight: Typography.fontWeight.medium,
-  },
-  boostSection: {
-    marginBottom: Spacing.sm,
-  },
-  boostRow: {
-    flexDirection: 'row',
-    gap: Spacing.sm,
-  },
-  boostChip: {
-    paddingHorizontal: Spacing.sm,
-    paddingVertical: 4,
-    borderRadius: BorderRadius.sm,
-    backgroundColor: Colors.surface,
-  },
-  boostText: {
-    fontSize: Typography.fontSize.xs,
-    color: Colors.textSecondary,
   },
 });

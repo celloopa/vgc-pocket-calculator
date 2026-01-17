@@ -151,7 +151,7 @@ export function getConditionLabel(conditionId: string): string {
     ...GMAX_SIDE_CONDITIONS,
   ];
 
-  const condition = allConditions.find((c) => c.id === conditionId);
+  const condition = allConditions.find(c => c.id === conditionId);
   return condition?.label ?? conditionId;
 }
 
@@ -165,6 +165,6 @@ export function getConditionEmoji(conditionId: string): string {
     ...GMAX_SIDE_CONDITIONS,
   ];
 
-  const condition = allConditions.find((c) => c.id === conditionId);
+  const condition = allConditions.find(c => c.id === conditionId);
   return condition?.emoji ?? '❓';
 }
