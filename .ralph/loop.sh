@@ -5,21 +5,24 @@
 # Usage: ./loop.sh [OPTIONS]
 #
 # Options:
-#   -m, --mode MODE        Mode: 'plan' or 'build' (default: build)
+#   -m, --mode MODE        Mode: 'plan', 'build', or 'research' (default: build)
 #   -n, --iterations N     Max iterations, 0 = infinite (default: 0)
 #   -p, --project ID       Vibe-kanban project ID for task sync
 #   -b, --branch NAME      Git branch to work on (default: current branch)
 #   --no-push              Skip git push after each iteration
 #   --no-commit            Skip git commit after each iteration
-#   --model MODEL          Claude model to use (default: opus)
+#   --model MODEL          Claude model to use (overrides mode default)
+#                          Defaults: research=sonnet, plan=opus, build=sonnet
 #   --token-limit N        Token threshold for re-context (default: 95000)
 #   --session-file FILE    File to track session stats (default: .ralph-session.json)
 #   -v, --verbose          Enable verbose output
 #   -h, --help             Show this help message
 #
 # Examples:
-#   ./loop.sh                           # Run build mode indefinitely
-#   ./loop.sh -m plan -n 1              # Run one planning iteration
+#   ./loop.sh                           # Run build mode with sonnet
+#   ./loop.sh -m plan -n 1              # Run one planning iteration with opus
+#   ./loop.sh -m research               # Run research mode with sonnet
+#   ./loop.sh -m build --model opus     # Run build mode with opus (override)
 #   ./loop.sh -m build -n 5 -p abc123   # 5 build iterations with kanban sync
 #
 
@@ -39,10 +42,16 @@ PROJECT_ID=""
 BRANCH=""
 DO_PUSH=true
 DO_COMMIT=true
-MODEL="opus"
+MODEL=""  # Empty = use mode default
+MODEL_OVERRIDE=false
 VERBOSE=false
 TOKEN_LIMIT=95000
 SESSION_FILE=".ralph-session.json"
+
+# Default models per mode
+MODEL_RESEARCH="sonnet"
+MODEL_PLAN="opus"
+MODEL_BUILD="sonnet"
 
 # Token tracking
 SESSION_TOKENS=0
@@ -245,6 +254,7 @@ while [[ $# -gt 0 ]]; do
             ;;
         --model)
             MODEL="$2"
+            MODEL_OVERRIDE=true
             shift 2
             ;;
         --token-limit)
@@ -270,9 +280,25 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Validate mode
-if [[ "$MODE" != "plan" && "$MODE" != "build" ]]; then
-    log_error "Invalid mode: $MODE. Must be 'plan' or 'build'"
+if [[ "$MODE" != "plan" && "$MODE" != "build" && "$MODE" != "research" ]]; then
+    log_error "Invalid mode: $MODE. Must be 'plan', 'build', or 'research'"
     exit 1
+fi
+
+# Set default model based on mode if not overridden
+if [ "$MODEL_OVERRIDE" = false ]; then
+    case "$MODE" in
+        research)
+            MODEL="$MODEL_RESEARCH"
+            ;;
+        plan)
+            MODEL="$MODEL_PLAN"
+            ;;
+        build)
+            MODEL="$MODEL_BUILD"
+            ;;
+    esac
+    log_verbose "Using default model for ${MODE} mode: ${MODEL}"
 fi
 
 # ============================================================================
