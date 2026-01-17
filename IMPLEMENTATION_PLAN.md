@@ -17,12 +17,12 @@ Specs analyzed: specs/mobile-calculator.md
 | Status | Count |
 | ------ | ----- |
 | Total  | 29    |
-| Done   | 5     |
-| Todo   | 24    |
+| Done   | 6     |
+| Todo   | 23    |
 
 **Phase 0 Research**: ✅ Complete (4/4 tasks)
 **Phase 1 Foundation**: 🔄 In Progress (1/4 tasks - TASK-002 done)
-**Phase 2 Core Logic**: 📋 Todo (4 tasks - TASK-005 to TASK-008)
+**Phase 2 Core Logic**: 🔄 In Progress (1/4 tasks - TASK-005 done)
 **Phase 3 Mobile UI**: ✅ Prototype Complete (3/9 tasks - TASK-009, 010, skeleton done)
 
 ---
@@ -384,14 +384,35 @@ Specs analyzed: specs/mobile-calculator.md
 
 ## Phase 2: Core Calculator Logic
 
-### TASK-005: Create Pokemon Data Service
+### TASK-005: Create Pokemon Data Service ✅
+
+**Status**: ✅ Complete (2026-01-17)
 
 - **Description**: Wrap @smogon/calc's Pokemon data for efficient searching. Include:
   - Species list with base stats, types, abilities
   - Fuzzy search by name (using fuse.js)
   - Form handling (Ursaluna, Ursaluna-Bloodmoon, etc.)
 - **Files**: `src/services/pokemon-data.ts`, `src/services/__tests__/pokemon-data.test.ts`
-- **Acceptance**: Search "Ursaluna" returns both forms, <50ms search time
+- **Acceptance**: Search "Ursaluna" returns both forms, <50ms search time ✅
+
+**Completion Notes**:
+- Installed fuse.js for fuzzy search functionality
+- Created PokemonDataService class with comprehensive API:
+  - `getAllSpecies()` - Returns all 1393 Gen 9 Pokemon
+  - `getSpeciesById(id)` - Get Pokemon by ID
+  - `getSpeciesByName(name)` - Get Pokemon by name (normalized)
+  - `searchSpecies(query, limit)` - Fuzzy search with form grouping
+  - `getFormsOf(baseId)` - Get all forms of a Pokemon
+  - `filterByType(type)` - Filter by Pokemon type
+  - `getAllTypes()` - Get list of all types
+- Implemented smart form handling:
+  - Correctly identifies alternate forms (Landorus-Therian, Ursaluna-Bloodmoon, etc.)
+  - Excludes false positives (Ho-Oh, Nidoran-F/M, Porygon-Z, etc.)
+  - Groups forms in search results
+- Created singleton pattern with `getPokemonDataService()` for Gen 9
+- All tests passing (33 total tests)
+- Search performance: <50ms as required
+- TypeScript type-safe with proper error handling
 
 ### TASK-006: Create Move Data Service
 

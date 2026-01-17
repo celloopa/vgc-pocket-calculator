@@ -8,25 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
-		224E88EED1A5B58C9669DC32 /* libPods-VGCPocketCalc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A482C833EBA32707704298BD /* libPods-VGCPocketCalc.a */; };
+		32C0158C4B7031BD67ED7F7A /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3575C71AF725E69BAA998B9C /* ExpoModulesProvider.swift */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		AE40801E7560BBA2013E645A /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 2E480F6B40569CF7AB3B95FC /* PrivacyInfo.xcprivacy */; };
+		42CCED934B4C84670DC347E8 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 090E6988D95B614457A54049 /* PrivacyInfo.xcprivacy */; };
+		4C18B0924541B141FB7F03AB /* libPods-VGCPocketCalc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B40096869A99E8928F51AA88 /* libPods-VGCPocketCalc.a */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
-		D0A1276D66320F3649C84498 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = B696FFB982BD8532BE5A73F5 /* ExpoModulesProvider.swift */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090E6988D95B614457A54049 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = VGCPocketCalc/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* VGCPocketCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VGCPocketCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = VGCPocketCalc/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = VGCPocketCalc/Info.plist; sourceTree = "<group>"; };
-		2E480F6B40569CF7AB3B95FC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = VGCPocketCalc/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		3401608781F7DC956B0F7B3A /* Pods-VGCPocketCalc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGCPocketCalc.debug.xcconfig"; path = "Target Support Files/Pods-VGCPocketCalc/Pods-VGCPocketCalc.debug.xcconfig"; sourceTree = "<group>"; };
-		A482C833EBA32707704298BD /* libPods-VGCPocketCalc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VGCPocketCalc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3575C71AF725E69BAA998B9C /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-VGCPocketCalc/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		5AD9FF6B9F242BF0ECC15A85 /* Pods-VGCPocketCalc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGCPocketCalc.release.xcconfig"; path = "Target Support Files/Pods-VGCPocketCalc/Pods-VGCPocketCalc.release.xcconfig"; sourceTree = "<group>"; };
+		819F984052BB42E02FCDD84A /* Pods-VGCPocketCalc.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGCPocketCalc.debug.xcconfig"; path = "Target Support Files/Pods-VGCPocketCalc/Pods-VGCPocketCalc.debug.xcconfig"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = VGCPocketCalc/SplashScreen.storyboard; sourceTree = "<group>"; };
-		B696FFB982BD8532BE5A73F5 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-VGCPocketCalc/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
+		B40096869A99E8928F51AA88 /* libPods-VGCPocketCalc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VGCPocketCalc.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		C7C7753AD4009F2C9B9E2DDD /* Pods-VGCPocketCalc.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VGCPocketCalc.release.xcconfig"; path = "Target Support Files/Pods-VGCPocketCalc/Pods-VGCPocketCalc.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = VGCPocketCalc/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* VGCPocketCalc-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "VGCPocketCalc-Bridging-Header.h"; path = "VGCPocketCalc/VGCPocketCalc-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -37,21 +37,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				224E88EED1A5B58C9669DC32 /* libPods-VGCPocketCalc.a in Frameworks */,
+				4C18B0924541B141FB7F03AB /* libPods-VGCPocketCalc.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05401D59F90D8007591B7169 /* VGCPocketCalc */ = {
-			isa = PBXGroup;
-			children = (
-				B696FFB982BD8532BE5A73F5 /* ExpoModulesProvider.swift */,
-			);
-			name = VGCPocketCalc;
-			sourceTree = "<group>";
-		};
 		13B07FAE1A68108700A75B9A /* VGCPocketCalc */ = {
 			isa = PBXGroup;
 			children = (
@@ -61,28 +53,36 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				2E480F6B40569CF7AB3B95FC /* PrivacyInfo.xcprivacy */,
+				090E6988D95B614457A54049 /* PrivacyInfo.xcprivacy */,
 			);
 			name = VGCPocketCalc;
-			sourceTree = "<group>";
-		};
-		15BFE34D0C8798B7F4B43808 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				3401608781F7DC956B0F7B3A /* Pods-VGCPocketCalc.debug.xcconfig */,
-				C7C7753AD4009F2C9B9E2DDD /* Pods-VGCPocketCalc.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				A482C833EBA32707704298BD /* libPods-VGCPocketCalc.a */,
+				B40096869A99E8928F51AA88 /* libPods-VGCPocketCalc.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		77E1D3DDA47CA02D9DF296D4 /* ExpoModulesProviders */ = {
+			isa = PBXGroup;
+			children = (
+				DF08D2DD491618D51B61A9AC /* VGCPocketCalc */,
+			);
+			name = ExpoModulesProviders;
+			sourceTree = "<group>";
+		};
+		79F3A7586609080AA320B800 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				819F984052BB42E02FCDD84A /* Pods-VGCPocketCalc.debug.xcconfig */,
+				5AD9FF6B9F242BF0ECC15A85 /* Pods-VGCPocketCalc.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -99,8 +99,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				15BFE34D0C8798B7F4B43808 /* Pods */,
-				C82E3AF2A3BA235B60FFE898 /* ExpoModulesProviders */,
+				79F3A7586609080AA320B800 /* Pods */,
+				77E1D3DDA47CA02D9DF296D4 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -124,12 +124,12 @@
 			path = VGCPocketCalc/Supporting;
 			sourceTree = "<group>";
 		};
-		C82E3AF2A3BA235B60FFE898 /* ExpoModulesProviders */ = {
+		DF08D2DD491618D51B61A9AC /* VGCPocketCalc */ = {
 			isa = PBXGroup;
 			children = (
-				05401D59F90D8007591B7169 /* VGCPocketCalc */,
+				3575C71AF725E69BAA998B9C /* ExpoModulesProvider.swift */,
 			);
-			name = ExpoModulesProviders;
+			name = VGCPocketCalc;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,13 +140,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "VGCPocketCalc" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				D90CE43BC94377021671C141 /* [Expo] Configure project */,
+				3EB80F0EDE569C6BC7D0B381 /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				8C22DF9F8FE560E4C301C123 /* [CP] Embed Pods Frameworks */,
+				81B83E955BF47D4F7D1BE13F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				AE40801E7560BBA2013E645A /* PrivacyInfo.xcprivacy in Resources */,
+				42CCED934B4C84670DC347E8 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +242,30 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		3EB80F0EDE569C6BC7D0B381 /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env",
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/VGCPocketCalc/VGCPocketCalc.entitlements",
+				"$(SRCROOT)/Pods/Target Support Files/Pods-VGCPocketCalc/expo-configure-project.sh",
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(SRCROOT)/Pods/Target Support Files/Pods-VGCPocketCalc/ExpoModulesProvider.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-VGCPocketCalc/expo-configure-project.sh\"\n";
+		};
 		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -268,7 +292,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VGCPocketCalc/Pods-VGCPocketCalc-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		8C22DF9F8FE560E4C301C123 /* [CP] Embed Pods Frameworks */ = {
+		81B83E955BF47D4F7D1BE13F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -290,30 +314,6 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VGCPocketCalc/Pods-VGCPocketCalc-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D90CE43BC94377021671C141 /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/.xcode.env",
-				"$(SRCROOT)/.xcode.env.local",
-				"$(SRCROOT)/VGCPocketCalc/VGCPocketCalc.entitlements",
-				"$(SRCROOT)/Pods/Target Support Files/Pods-VGCPocketCalc/expo-configure-project.sh",
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(SRCROOT)/Pods/Target Support Files/Pods-VGCPocketCalc/ExpoModulesProvider.swift",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-VGCPocketCalc/expo-configure-project.sh\"\n";
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -322,7 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				D0A1276D66320F3649C84498 /* ExpoModulesProvider.swift in Sources */,
+				32C0158C4B7031BD67ED7F7A /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +331,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3401608781F7DC956B0F7B3A /* Pods-VGCPocketCalc.debug.xcconfig */;
+			baseConfigurationReference = 819F984052BB42E02FCDD84A /* Pods-VGCPocketCalc.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -367,7 +367,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C7C7753AD4009F2C9B9E2DDD /* Pods-VGCPocketCalc.release.xcconfig */;
+			baseConfigurationReference = 5AD9FF6B9F242BF0ECC15A85 /* Pods-VGCPocketCalc.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
