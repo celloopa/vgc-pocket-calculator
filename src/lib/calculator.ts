@@ -82,20 +82,102 @@ export interface MoveConfig {
  * Field conditions for damage calculation
  */
 export interface FieldConfig {
-  weather?: 'Sun' | 'Rain' | 'Sand' | 'Snow' | 'Harsh Sunshine' | 'Heavy Rain' | 'Strong Winds';
-  terrain?: 'Electric' | 'Grassy' | 'Psychic' | 'Misty';
+  // Game type
   gameType?: GameType;
+
+  // Weather
+  weather?:
+    | 'Sun'
+    | 'Rain'
+    | 'Sand'
+    | 'Snow'
+    | 'Hail'
+    | 'Harsh Sunshine'
+    | 'Heavy Rain'
+    | 'Strong Winds';
+
+  // Terrain
+  terrain?: 'Electric' | 'Grassy' | 'Psychic' | 'Misty';
+
+  // Field-wide conditions
+  isMagicRoom?: boolean; // Items suppressed
+  isWonderRoom?: boolean; // Def and SpD swapped
+  isGravity?: boolean; // Ground-type immunity removed
+
+  // Ruin abilities (Treasures of Ruin legendaries)
+  isBeadsOfRuin?: boolean; // SpD ×0.75
+  isSwordOfRuin?: boolean; // Def ×0.75
+  isTabletsOfRuin?: boolean; // Atk ×0.75
+  isVesselOfRuin?: boolean; // SpA ×0.75
+
+  // Auras
+  isFairyAura?: boolean; // Fairy moves ×1.33
+  isDarkAura?: boolean; // Dark moves ×1.33
+  isAuraBreak?: boolean; // Reverses aura effects
+
+  // Attacker side conditions
   attackerSide?: {
-    reflect?: boolean;
-    lightScreen?: boolean;
-    auroraVeil?: boolean;
-    tailwind?: boolean;
-    helpingHand?: boolean;
+    // Screens
+    isReflect?: boolean;
+    isLightScreen?: boolean;
+    isAuroraVeil?: boolean;
+
+    // Speed and support
+    isTailwind?: boolean;
+    isHelpingHand?: boolean;
+
+    // Abilities
+    isFriendGuard?: boolean;
+    isFlowerGift?: boolean;
+    isBattery?: boolean;
+    isPowerSpot?: boolean;
+
+    // Hazards
+    spikes?: number; // 0-3 layers
+    isSR?: boolean; // Stealth Rock
+    steelsurge?: boolean;
+
+    // G-Max move effects
+    vinelash?: boolean;
+    wildfire?: boolean;
+    cannonade?: boolean;
+    volcalith?: boolean;
+
+    // Other
+    isSeeded?: boolean;
+    isForesight?: boolean;
   };
+
+  // Defender side conditions
   defenderSide?: {
-    reflect?: boolean;
-    lightScreen?: boolean;
-    auroraVeil?: boolean;
+    // Screens
+    isReflect?: boolean;
+    isLightScreen?: boolean;
+    isAuroraVeil?: boolean;
+
+    // Speed and support
+    isTailwind?: boolean;
+
+    // Abilities
+    isFriendGuard?: boolean;
+    isFlowerGift?: boolean;
+    isBattery?: boolean;
+    isPowerSpot?: boolean;
+
+    // Hazards
+    spikes?: number; // 0-3 layers
+    isSR?: boolean; // Stealth Rock
+    steelsurge?: boolean;
+
+    // G-Max move effects
+    vinelash?: boolean;
+    wildfire?: boolean;
+    cannonade?: boolean;
+    volcalith?: boolean;
+
+    // Other
+    isSeeded?: boolean;
+    isForesight?: boolean;
   };
 }
 
@@ -152,18 +234,24 @@ export function calculateDamage(
       gameType: fieldConfig.gameType ?? 'Doubles', // Default to doubles for VGC
       weather: fieldConfig.weather,
       terrain: fieldConfig.terrain,
-      attackerSide: {
-        isReflect: fieldConfig.attackerSide?.reflect,
-        isLightScreen: fieldConfig.attackerSide?.lightScreen,
-        isAuroraVeil: fieldConfig.attackerSide?.auroraVeil,
-        isTailwind: fieldConfig.attackerSide?.tailwind,
-        isHelpingHand: fieldConfig.attackerSide?.helpingHand,
-      },
-      defenderSide: {
-        isReflect: fieldConfig.defenderSide?.reflect,
-        isLightScreen: fieldConfig.defenderSide?.lightScreen,
-        isAuroraVeil: fieldConfig.defenderSide?.auroraVeil,
-      },
+
+      // Field-wide conditions
+      isMagicRoom: fieldConfig.isMagicRoom,
+      isWonderRoom: fieldConfig.isWonderRoom,
+      isGravity: fieldConfig.isGravity,
+      isAuraBreak: fieldConfig.isAuraBreak,
+      isFairyAura: fieldConfig.isFairyAura,
+      isDarkAura: fieldConfig.isDarkAura,
+      isBeadsOfRuin: fieldConfig.isBeadsOfRuin,
+      isSwordOfRuin: fieldConfig.isSwordOfRuin,
+      isTabletsOfRuin: fieldConfig.isTabletsOfRuin,
+      isVesselOfRuin: fieldConfig.isVesselOfRuin,
+
+      // Attacker side
+      attackerSide: fieldConfig.attackerSide,
+
+      // Defender side
+      defenderSide: fieldConfig.defenderSide,
     });
   }
 

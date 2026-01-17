@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, Pressable } from 'react-native';
 import { Colors, BorderRadius, Spacing, Typography } from '@/theme';
+import { WEATHER_OPTIONS, TERRAIN_OPTIONS } from '@/constants/field-conditions';
 
 interface ChipProps {
   label: string;
@@ -30,25 +31,15 @@ export default function FieldConditionsBar() {
   const [lightScreen, setLightScreen] = useState(false);
   const [helpingHand, setHelpingHand] = useState(false);
 
-  const weatherOptions = [
-    { id: 'sun', label: '☀️ Sun' },
-    { id: 'rain', label: '🌧️ Rain' },
-    { id: 'sand', label: '🌪️ Sand' },
-    { id: 'snow', label: '❄️ Snow' },
-  ];
+  // Filter out "None" option for display
+  const weatherOptions = WEATHER_OPTIONS.filter((opt) => opt.id !== null);
+  const terrainOptions = TERRAIN_OPTIONS.filter((opt) => opt.id !== null);
 
-  const terrainOptions = [
-    { id: 'electric', label: '⚡ Electric' },
-    { id: 'grassy', label: '🌱 Grassy' },
-    { id: 'psychic', label: '🧠 Psychic' },
-    { id: 'misty', label: '🌫️ Misty' },
-  ];
-
-  const handleWeatherToggle = (id: string) => {
+  const handleWeatherToggle = (id: string | null) => {
     setWeather(weather === id ? null : id);
   };
 
-  const handleTerrainToggle = (id: string) => {
+  const handleTerrainToggle = (id: string | null) => {
     setTerrain(terrain === id ? null : id);
   };
 
@@ -60,10 +51,10 @@ export default function FieldConditionsBar() {
         contentContainerStyle={styles.scrollContent}
       >
         {/* Weather chips */}
-        {weatherOptions.map(option => (
+        {weatherOptions.map((option) => (
           <Chip
-            key={option.id}
-            label={option.label}
+            key={option.id ?? 'none-weather'}
+            label={`${option.emoji} ${option.label}`}
             active={weather === option.id}
             onPress={() => handleWeatherToggle(option.id)}
           />
@@ -72,10 +63,10 @@ export default function FieldConditionsBar() {
         <View style={styles.separator} />
 
         {/* Terrain chips */}
-        {terrainOptions.map(option => (
+        {terrainOptions.map((option) => (
           <Chip
-            key={option.id}
-            label={option.label}
+            key={option.id ?? 'none-terrain'}
+            label={`${option.emoji} ${option.label}`}
             active={terrain === option.id}
             onPress={() => handleTerrainToggle(option.id)}
           />

@@ -62,7 +62,7 @@ describe('calculateDamage', () => {
       gameType: 'Doubles',
       weather: 'Rain',
       attackerSide: {
-        helpingHand: true,
+        isHelpingHand: true,
       },
     };
 
