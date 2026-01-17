@@ -15,11 +15,58 @@ Specs analyzed: specs/mobile-calculator.md
 
 | Status | Count |
 |--------|-------|
-| Total  | 28    |
+| Total  | 29    |
 | Done   | 4     |
-| Todo   | 24    |
+| Todo   | 25    |
 
 **Phase 0 Research**: ✅ Complete (4/4 tasks)
+**Phase 1 Foundation**: 📋 Todo (4 tasks - TASK-001 to TASK-004)
+**Phase 2 Core Logic**: 📋 Todo (4 tasks - TASK-005 to TASK-008)
+**Phase 3 Mobile UI**: 📋 Todo (9 tasks - TASK-009 to TASK-017) ⭐ UI design complete!
+
+---
+
+## 🎯 NEXT ITERATION: BUILD MODE - Quick Prototype
+
+**Goal**: Create visual layout prototype (no functionality)
+**Rationale**: User wants to "see what the app looks like" before full implementation
+**Mode**: BUILD (not research)
+
+### Prototype Scope (Iteration 3)
+
+**Build These**:
+1. ✅ TASK-001: Initialize Expo React Native Project
+2. ✅ TASK-009: Set up Animation & Gesture Libraries (Moti + Reanimated)
+3. ✅ TASK-010: Create Design System & Theme (colors, tokens)
+4. 🎨 **Layout Skeleton** (not in task list - prototype only):
+   - Damage Results Card placeholder (top, sticky)
+   - Field Conditions Bar placeholder (horizontal chips)
+   - Collapsible Attacker/Defender cards (with spring animation)
+   - Quick action buttons (bottom)
+   - Test expand/collapse interaction
+   - Verify responsive layout on different screen sizes
+
+**Skip in Prototype**:
+- ❌ @smogon/calc integration (TASK-002)
+- ❌ Data services (TASK-005, 006)
+- ❌ Bottom sheets (use inline dropdowns temporarily)
+- ❌ Sprites (use colored boxes with type icons)
+- ❌ Real calculations (show mock damage numbers)
+- ❌ State management (use local component state)
+
+**Outcome**:
+- See layout hierarchy in action
+- Test card animations on device
+- Validate "results-first" workflow
+- Check screen space utilization
+- Get feel for Pokemon-themed colors
+
+**Design References**:
+- `specs/ui-design.md` - Complete UI specification
+- `specs/edge-cases.md` - Edge case handling
+- `.ralph/RESEARCH_SUMMARY.md` - Research findings
+
+**Kanban**: Tasks in project "pokemon-vgc-doubles_calculator" (ID: a76c80ac-176f-486b-a2a5-f77563536ba4)
 
 ---
 
@@ -351,64 +398,127 @@ Specs analyzed: specs/mobile-calculator.md
 
 ## Phase 3: Mobile UI
 
-### TASK-009: Create Pokemon Search Component
-- **Description**: Searchable Pokemon selector optimized for mobile:
-  - Search bar with instant results
-  - Recent Pokemon section
-  - Favorites section (star to save)
-  - Pokemon sprite preview
-- **Files**: `src/components/PokemonSearch.tsx`
-- **Acceptance**: Can find and select Pokemon in <3 taps
+**Design System**: Pokemon-themed playful style with flat 2D animations, using Moti + Reanimated for animations.
+**Key Features**: 4-move comparison, collapsible cards, bottom sheet modals, gesture controls, haptic feedback.
+**Reference**: `specs/ui-design.md` and `specs/edge-cases.md`
 
-### TASK-010: Create Pokemon Config Component
-- **Description**: Configure selected Pokemon:
-  - Nature dropdown (with stat preview)
-  - EV spread with presets + custom
-  - Ability selector
-  - Item selector
-  - Tera type selector
-  - Stat boost toggles
-- **Files**: `src/components/PokemonConfig.tsx`
-- **Acceptance**: All config options work, state updates correctly
+### TASK-009: Set up Animation & Gesture Libraries
+- **Description**: Install and configure animation foundation:
+  - React Native Reanimated 3
+  - Moti (Framer Motion-like API)
+  - React Native Gesture Handler
+  - @gorhom/bottom-sheet
+  - expo-haptics
+- **Files**: `package.json`, `babel.config.js`, theme setup
+- **Acceptance**: Libraries installed, sample animation renders smoothly
 
-### TASK-011: Create Move Selector Component
-- **Description**: Move selector for attacker:
-  - Search by name
-  - Filter by type (color-coded chips)
-  - Show power, type, category
+### TASK-010: Create Design System & Theme
+- **Description**: Implement Pokemon-themed design system:
+  - Color palette (Pokemon type colors, damage indicators)
+  - Typography system
+  - Spacing and layout tokens
+  - Border radius values (16px cards, 20px pills)
+  - Type color mappings (all 18 types)
+  - Item sprite loading utilities
+- **Files**: `src/theme/colors.ts`, `src/theme/tokens.ts`, `src/utils/sprites.ts`
+- **Acceptance**: Theme tokens available, type colors render correctly
+
+### TASK-011: Create Pokemon Search Bottom Sheet
+- **Description**: Bottom sheet modal for Pokemon selection:
+  - Search bar with fuzzy search (instant results)
+  - Tabs: Recent | Favorites | All
+  - Grid layout with sprites + names
+  - Star icon for favorites
+  - Type icon fallback for missing sprites
+  - Swipe down to dismiss
+  - Spring animation on open/close
+- **Files**: `src/components/PokemonSearchSheet.tsx`
+- **Acceptance**: Search works, favorites persist, animations smooth
+
+### TASK-012: Create Collapsible Pokemon Card
+- **Description**: Expandable Pokemon configuration card:
+  - Collapsed: Pokemon name + sprite + chevron (60pt height)
+  - Expanded: Full config (300pt height)
+  - Spring layout animation (damping: 20, stiffness: 200)
+  - Nature selector (bottom sheet)
+  - EV preset chips: [252/252/4] [Bulky] [Custom]
+  - Ability/Item/Tera selectors (bottom sheets)
+  - Stat boost presets: [No Boosts] [+1 Atk] [+1 SpA] [+1 Spe] [Intimidate -1] [Custom]
+  - Handle long Pokemon names (two-line layout)
+  - Type-based card shadow
+  - Swipe left/right to swap with other card
+- **Files**: `src/components/PokemonCard.tsx`, `src/components/StatBoostSheet.tsx`
+- **Acceptance**: Expand/collapse smooth, only one card expanded at a time, swipe gesture works
+
+### TASK-013: Create Move Selector Bottom Sheet (Multi-Select)
+- **Description**: Multi-select bottom sheet for choosing 4 moves:
+  - Search bar with instant filtering
+  - Type filter chips (horizontal scroll, Pokemon type colors)
+  - Multi-select checkboxes (max 4 moves)
+  - Show move: name, type icon, power, category (Phys/Spec)
   - Recent moves section
-- **Files**: `src/components/MoveSelector.tsx`
-- **Acceptance**: Can select move in <2 taps
+  - Handle long move names (two-line rows)
+  - Multi-hit moves show hit count
+  - "Apply" button to confirm
+  - Spring animation on entry
+- **Files**: `src/components/MoveSelectSheet.tsx`
+- **Acceptance**: Can select 4 moves, filter works, checkboxes clear
 
-### TASK-012: Create Field Conditions Component
-- **Description**: Toggle buttons for field state:
-  - Weather row (5 options)
-  - Terrain row (5 options)
-  - Screens toggles
-  - Helping Hand toggle
-  - Critical hit toggle
-- **Files**: `src/components/FieldConditions.tsx`
-- **Acceptance**: Single tap toggles, visual feedback clear
+### TASK-014: Create Field Conditions Bar
+- **Description**: Horizontal scrollable chip bar for field state:
+  - Weather chips: ☀️ Sun, 🌧️ Rain, 🌪️ Sand, ❄️ Snow, ⛅ None
+  - Terrain chips: ⚡ Electric, 🌱 Grassy, 🧠 Psychic, 🌫️ Misty, ⛅ None
+  - Screen toggles: 🛡️ Reflect, 💡 Light Screen, 🌀 Aurora Veil
+  - Modifier toggles: 🤝 Helping Hand, 💥 Crit
+  - Radio button behavior (auto-deselect for weather/terrain)
+  - Pop animation on toggle (scale 1.0 → 1.15 → 1.0)
+  - Haptic feedback on tap
+  - Pill shape (20px border radius)
+- **Files**: `src/components/FieldConditionsBar.tsx`
+- **Acceptance**: Single tap toggle, mutually exclusive groups work, haptics feel good
 
-### TASK-013: Create Damage Output Component
-- **Description**: Clear damage display:
-  - Damage range as HP and percentage
-  - KO indicator (OHKO, 2HKO, etc.) with probability
-  - Damage roll visualization (bar chart)
-  - Expandable full description
-- **Files**: `src/components/DamageOutput.tsx`
-- **Acceptance**: Shows damage clearly, updates instantly
+### TASK-015: Create Damage Results Card (4-Move Comparison)
+- **Description**: Top-positioned damage results display:
+  - Show 4 moves with damage ranges simultaneously
+  - Each row: Type icon, move name, damage HP, damage %, KO indicator
+  - Damage bars with type-based colors (Fire=OHKO, Electric=2HKO, Grass=3HKO, Water=4HKO+)
+  - Handle edge cases:
+    - Very high damage (>100%): overflow gradient
+    - Very low damage (<5%): dot indicator
+    - Similar damage: dynamic range scaling
+    - Zero damage: "IMMUNE" with reason
+    - Multi-hit moves: per-hit sub-line
+  - Tap row to expand for full calculation description
+  - Slide-in animation on calculation update
+  - Haptic feedback on calculation complete
+- **Files**: `src/components/DamageResultsCard.tsx`, `src/components/DamageRow.tsx`
+- **Acceptance**: 4 moves visible, damage bars accurate, edge cases handled gracefully
 
-### TASK-014: Create Main Calculator Screen
-- **Description**: Assemble components:
-  - Attacker card (collapsible)
-  - Defender card (collapsible)
-  - Move selector
-  - Field conditions bar
-  - Damage output (always visible)
-  - Swap button
+### TASK-016: Create Main Calculator Screen
+- **Description**: Assemble all components with proper layout:
+  - Top: Damage Results Card (sticky, always visible)
+  - Below: Field Conditions Bar (horizontal scroll)
+  - Below: Attacker Card (collapsible)
+  - Below: Defender Card (collapsible)
+  - Bottom: Quick Actions ([⇅ Swap] [🔄 Reset] [📋 Import])
+  - Only one Pokemon card expanded at a time
+  - Results-first workflow (damage at top)
+  - Responsive breakpoints (small: <380pt, standard: 380-430pt, large: >430pt)
+  - Empty state when no moves selected (friendly CTA)
+  - Swap gesture (swipe left/right on cards)
 - **Files**: `src/screens/CalculatorScreen.tsx`
-- **Acceptance**: Full calculation flow works end-to-end
+- **Acceptance**: Full flow works, gestures smooth, responsive on different screen sizes
+
+### TASK-017: Implement Sprite Loading System
+- **Description**: Load and cache Pokemon/item sprites:
+  - Integrate @smogon/calc sprite data
+  - Type icon fallback for missing sprites
+  - Item sprite loading (Choice Scarf, Life Orb, etc.)
+  - Lazy loading with placeholder
+  - Cache sprites in memory
+  - Handle sprite load errors gracefully
+- **Files**: `src/services/sprite-loader.ts`, `src/hooks/useSprite.ts`
+- **Acceptance**: Sprites load quickly, fallbacks work, no crashes on missing sprites
 
 ---
 
